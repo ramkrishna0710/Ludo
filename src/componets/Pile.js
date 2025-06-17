@@ -7,6 +7,7 @@ import PileGreen from '../assets/images/piles/green.png'
 import PileRed from '../assets/images/piles/red.png'
 import PileBlue from '../assets/images/piles/blue.png'
 import PileYellow from '../assets/images/piles/yellow.png'
+import { Svg, Circle } from 'react-native-svg'
 
 const Pile = ({ cell, pieceId, color, player, onPress }) => {
 
@@ -80,14 +81,25 @@ const Pile = ({ cell, pieceId, color, player, onPress }) => {
       <View style={styles.hollowCircle}>
         {(cell ? isCellEnabled && isForwardable() : isPileEnabled) && (
           <View style={styles.dashedCircleContainer}>
-            {/* <Animated.View
+            <Animated.View
               style={[
                 styles.dashedCircle,
                 { transform: [{ rotate: rotationInterpolate }] }
               ]}
             >
-              <Image source={}
-            </Animated.View> */}
+              <Svg height="18" width="18">
+                <Circle
+                  cx="9"
+                  cy="9"
+                  r="8"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  strokeDashoffset="8"
+                  fill="transparent"
+                />
+              </Svg>
+            </Animated.View>
           </View>
         )}
       </View>
@@ -127,7 +139,15 @@ const styles = StyleSheet.create({
     height: 25,
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  // dashedCircleImage: {
+  //   height: 20,
+  //   width: 20,
+  //   resizeMode: 'contain',
+  //   borderWidth: 4,
+  //   borderRadius: 50,
+  //   borderColor: '#F032C5'
+  // }
 })
 
 

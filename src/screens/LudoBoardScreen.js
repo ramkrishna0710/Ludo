@@ -13,6 +13,10 @@ import WinModal from '../componets/modal/WinModal'
 import { Colors } from '../constants/Colors'
 import Dice from '../componets/Dice'
 import Pocket from '../componets/Pocket'
+import VerticalPath from '../componets/path/VerticalPath'
+import { Plot1Data, Plot2Data, Plot3Data, Plot4Data } from '../helpers/PlotData'
+import HorizontalPath from '../componets/path/HorizontalPath'
+import FourTriangles from '../componets/path/FourTriangles'
 
 const LudoBoardScreen = () => {
 
@@ -85,15 +89,24 @@ const LudoBoardScreen = () => {
 
           <View style={styles.plotContainer}>
             <Pocket color={Colors.green} player={2} data={player2} />
+            <VerticalPath cells={Plot2Data} color={Colors.yellow} />
             <Pocket color={Colors.yellow} player={3} data={player3} />
           </View>
 
           <View style={styles.pathContainer}>
-
+            <HorizontalPath cells={Plot1Data} color={Colors.green} />
+            <FourTriangles
+              player1={player1}
+              player2={player2}
+              player3={player3}
+              player4={player4}
+            />
+            <HorizontalPath cells={Plot3Data} color={Colors.blue} />
           </View>
 
           <View style={styles.plotContainer}>
             <Pocket color={Colors.red} player={1} data={player1} />
+            <VerticalPath cells={Plot4Data} color={Colors.red} />
             <Pocket color={Colors.blue} player={4} data={player4} />
           </View>
         </View>
